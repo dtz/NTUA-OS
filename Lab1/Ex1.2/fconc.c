@@ -63,8 +63,7 @@ int main (int argc , char **argv)
         int infd1,infd2,outfd;
 	if (checkArgs(argc,argv,&infile,&outfile) == -1 ) 
 		return -1 ;
-    //	if ((infd1 = manageOpen(infile[0],O_WRONLY)) == -1 ||(infd2 = manageOpen(infile[1],O_WRONLY)) == -1 || (outfd = manageOpen(outfile,O_WRONLY|O_CREAT)) ==-1) return -1 ; 
-	if ((outfd = manageOpen(outfile,O_WRONLY|O_CREAT)) ==-1) return -1 ; 
+ 	if ((outfd = manageOpen(outfile,O_WRONLY|O_CREAT)) ==-1) return -1 ; 
 	write_file(outfd,infile[0]);
 	write_file(outfd,infile[1]);
 	if (close(outfd) < 0 ) {
