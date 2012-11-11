@@ -90,7 +90,7 @@ int main (int argc , char **argv)
 		if ((tmpfd = mkstemp(tmp)) == -1) {
 			perror("Problem while creating tmp file");
 			exit(1);
-		}printf("dsadsa\n");
+		}
 		write_file(tmpfd,infile[position]);
 		if ((outfd = manageOpen(outfile,O_WRONLY|O_CREAT|O_TRUNC)) ==-1) return -1 ; 
 		for (i = 0 ; i < argc -2 ; i++){
@@ -100,16 +100,15 @@ int main (int argc , char **argv)
 				write_file(outfd,infile[i]);
 		}
 	}
-/* 	
-	if ((outfd = manageOpen(outfile,O_WRONLY|O_CREAT)) ==-1) return -1 ; 
-	write_file(outfd,infile[0]);
-	write_file(outfd,infile[1]);
+ 	else {
+		if ((outfd = manageOpen(outfile,O_WRONLY|O_CREAT)) ==-1) return -1 ; 
+		write_file(outfd,infile[0]);
+		write_file(outfd,infile[1]);
+	}
 	if (close(outfd) < 0 ) {
 		perror("Error while closing output file");
 		exit(1);
 	}
-	return 0;
-*/ 
-	//unlink(sfn);
+	unlink(tmp);
 	return 0 ; 
 }
