@@ -1,8 +1,9 @@
 fconc:	fconc.c
 	gcc fconc.c -o fconc
-fconc2: fconc2.c
-	gcc fconc2.c -o fconc2
-
-
-
-
+bonus: fconc_bonus.c
+	gcc fconc_bonus.c -o bonus
+r:
+	echo 'a' > A
+	echo 'b' > B
+clean:
+	rm -f *.o
